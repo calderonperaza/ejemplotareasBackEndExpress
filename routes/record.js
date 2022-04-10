@@ -26,17 +26,15 @@ recordRoutes.route('/tareas').get(async function (_req, res) {
 });
 
 // This section will help you create a new record.
-recordRoutes.route('/listings/recordSwipe').post(function (req, res) {
+recordRoutes.route('/tarea').post(function (req, res) {
   const dbConnect = dbo.getDb();
   const matchDocument = {
-    listing_id: req.body.id,
-    last_modified: new Date(),
-    session_id: req.body.session_id,
-    direction: req.body.direction,
+    nombre: req.body.nombre,
+    hecho: req.body.hecho,
   };
 
   dbConnect
-    .collection('matches')
+    .collection('Tarea')
     .insertOne(matchDocument, function (err, result) {
       if (err) {
         res.status(400).send('Error inserting matches!');
@@ -47,6 +45,7 @@ recordRoutes.route('/listings/recordSwipe').post(function (req, res) {
     });
 });
 
+/*
 // This section will help you update a record by id.
 recordRoutes.route('/listings/updateLike').post(function (req, res) {
   const dbConnect = dbo.getDb();
@@ -69,6 +68,7 @@ recordRoutes.route('/listings/updateLike').post(function (req, res) {
       }
     });
 });
+*/
 
 // This section will help you delete a record.
 recordRoutes.route('/listings/delete/:id').delete((req, res) => {
