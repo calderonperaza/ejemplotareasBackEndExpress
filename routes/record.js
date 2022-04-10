@@ -26,7 +26,7 @@ recordRoutes.route('/tareas').get(async function (_req, res) {
 });
 
 // This section will help you create a new record.
-recordRoutes.route('/tarea').post(function (req, res) {
+recordRoutes.route('/tareas').post(function (req, res) {
   const dbConnect = dbo.getDb();
   const matchDocument = {
     nombre: req.body.nombre,
@@ -71,20 +71,19 @@ recordRoutes.route('/listings/updateLike').post(function (req, res) {
 */
 
 // This section will help you delete a record.
-recordRoutes.route('/listings/delete/:id').delete((req, res) => {
+recordRoutes.route('/tareas/delete/:id').delete((req, res) => {
+  var mongodb = require('mongodb');
+  var ObjectID = require('mongodb').ObjectID;
+  var delete_id = req.params.id;//your id
   const dbConnect = dbo.getDb();
-  const listingQuery = { listing_id: req.body.id };
 
+  const listingQuery = { "_id": new mongodb.ObjectID(delete_id.toString()) };
+  //console.log(listingQuery);
   dbConnect
-    .collection('listingsAndReviews')
-    .deleteOne(listingQuery, function (err, _result) {
-      if (err) {
-        res
-          .status(400)
-          .send(`Error deleting listing with id ${listingQuery.listing_id}!`);
-      } else {
-        console.log('1 document deleted');
-      }
+    .collection('Tarea').deleteOne(listingQuery)
+    .then(()=>{
+      res.status(204).send();
+      console.log("Se pudo eliminar"+ listingQuery._id);
     });
 });
 
