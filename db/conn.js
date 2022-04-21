@@ -1,6 +1,8 @@
 const { MongoClient } = require('mongodb');
 const connectionString = process.env.ATLAS_URI;
-const client = new MongoClient(connectionString, {
+const mongoURL = process.env.MONGO_URL || connectionString
+
+const client = new MongoClient(mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
