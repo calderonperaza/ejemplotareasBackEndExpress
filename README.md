@@ -31,7 +31,7 @@ npm start
 Podra acceder por medio de la siguiente URL
 
 ##backend url
-http://localhost:3000
+http://localhost:3000/tareas
 
 #### Universidad de El Salvador
 
