@@ -10,4 +10,4 @@ EXPOSE 3000
 CMD [ "node", "server.js" ]
 
 # para crear la imagen ejecute
-#sudo docker build -t mirepo/ejemplofrontend:latest .
+#sudo docker build -t mirepo/ejemplobackend:latest .
