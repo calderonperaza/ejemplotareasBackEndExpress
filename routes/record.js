@@ -12,6 +12,14 @@ recordRoutes.route('/').get(async function (_req, res) {
   res.status(200).send('Bienvenido al Backend!!');  
 });
 
+recordRoutes.route('/error').get(async function (_req, res) {
+  let variable=3.55;
+  while(true){
+    variable=variable*3;
+  }
+  res.status(200).send('Bucle Infinito para botar el servicio');  
+});
+
 
 
 // This section will help you get a list of all the records.
