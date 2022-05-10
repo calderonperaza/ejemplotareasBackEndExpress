@@ -1,4 +1,6 @@
 const express = require('express');
+const os = require('os');
+
 
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -9,15 +11,18 @@ const recordRoutes = express.Router();
 const dbo = require('../db/conn');
 
 recordRoutes.route('/').get(async function (_req, res) {
-  res.status(200).send('Bienvenido al Backend!!');  
+  res.status(200).send('Bienvenido al Backend!!' 
+  + "<br> Hostname = " + os.hostname()
+  + "<br> OS = " + os.platform()
+  + "<br> version = " + os.version()
+  + "<br> Total Memoria "+ os.totalmem()
+  + "<br> Direccion IP "+ os.networkInterfaces().lo[0].address
+  );  
 });
 
 recordRoutes.route('/error').get(async function (_req, res) {
-  let variable=3.55;
-  while(true){
-    variable=variable*3;
-  }
-  res.status(200).send('Bucle Infinito para botar el servicio');  
+  let variable=3.55/0; 
+  res.status(200).send('Error');  
 });
 
 

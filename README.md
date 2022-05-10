@@ -33,6 +33,11 @@ Podra acceder por medio de la siguiente URL
 ##backend url
 http://localhost:3000/tareas
 
+
+Ejemplo de la cadena de conexion para mongo Atlas
+
+ATLAS_URI=mongodb+srv://backend:claveUsada123@sandbox.servidor.mongodb.net/ejemplo?retryWrites=true&w=majority
+
 #### Universidad de El Salvador
 
  
