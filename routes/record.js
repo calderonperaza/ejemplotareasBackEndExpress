@@ -15,13 +15,17 @@ recordRoutes.route('/').get(async function (_req, res) {
   + "<br> Hostname = " + os.hostname()
   + "<br> OS = " + os.platform()
   + "<br> version = " + os.version()
-  + "<br> Total Memoria "+ os.totalmem()
-  + "<br> Direccion IP "+ os.networkInterfaces().lo[0].address
+  + "<br> Total Memoria "+ os.totalmem()  
   );  
 });
 
 recordRoutes.route('/error').get(async function (_req, res) {
-  let variable=3.55/0; 
+  //AQUI BUSCAMOS TENER UN ERROR PARA QUE SE CAIGA EL BACKEND
+  //El sistema debe poder levantar el servicio de nuevo
+  
+
+
+  
   res.status(200).send('Error');  
 });
 
