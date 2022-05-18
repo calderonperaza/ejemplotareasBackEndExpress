@@ -38,6 +38,9 @@ Ejemplo de la cadena de conexion para mongo Atlas
 
 ATLAS_URI=mongodb+srv://backend:claveUsada123@sandbox.servidor.mongodb.net/ejemplo?retryWrites=true&w=majority
 
+En localhost esta es la cadena
+ATLAS_URI=mongodb://localhost:27017/ejemplo
+
 #### Universidad de El Salvador
 
  
