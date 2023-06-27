@@ -19,9 +19,11 @@
     "mongodb": "^3.6.6"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
     "eslint": "^8.0.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.12",
     "prettier": "^2.4.1"
   },
