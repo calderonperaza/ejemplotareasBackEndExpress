@@ -22,10 +22,7 @@ recordRoutes.route('/').get(async function (_req, res) {
 recordRoutes.route('/error').get(async function (_req, res) {
   //AQUI BUSCAMOS TENER UN ERROR PARA QUE SE CAIGA EL BACKEND
   //El sistema debe poder levantar el servicio de nuevo
-  
 
-
-  
   res.status(200).send('Error');  
 });
 
@@ -63,7 +60,8 @@ recordRoutes.route('/tareas').post(function (req, res) {
         res.status(400).send('Error inserting matches!');
       } else {
         console.log(`Added a new match with id ${result.insertedId}`);
-        res.status(204).send();
+        res.status(200).send({'id': result.insertedId});
+        //res.status(204).send();
       }
     });
 });
@@ -105,7 +103,7 @@ recordRoutes.route('/tareas/delete/:id').delete((req, res) => {
   dbConnect
     .collection('Tarea').deleteOne(listingQuery)
     .then(()=>{
-      res.status(204).send();
+      res.status(200).send();
       console.log("Se pudo eliminar"+ listingQuery._id);
     });
 });

@@ -31,3 +31,5 @@ dbo.connectToServer(function (err) {
     console.log(`Server is running on port: ${PORT}`);
   });
 });
+
+module.exports = app;
