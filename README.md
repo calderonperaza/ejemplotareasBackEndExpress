@@ -2,6 +2,8 @@
 Back End Ejemplo de Tareas con Express Nodejs.
 Una pequeña aplicación de ejemplo para usarla en forma de despliegue de una apps, representa el backend y esta montada empleando NodeJS, debes tener instalado una version de node 12
 
+ESTE PROYECTO TIENE INCORPORADO TEST DE PRUEBAS
+
 ### Configuracion
 
 Este proyecto requiere una base de datos de MongoDB, la cual emplearemos desde la nube usando la cuenta gratis de Atlas Mongodb.
@@ -40,6 +42,14 @@ ATLAS_URI=mongodb+srv://backend:claveUsada123@sandbox.servidor.mongodb.net/ejemp
 
 En localhost esta es la cadena
 ATLAS_URI=mongodb://localhost:27017/ejemplo
+
+
+### Realizar las pruebas
+ejecute el siguiente comando para realizar las pruebas
+```
+npm test
+```
+
 
 #### Universidad de El Salvador
 
