@@ -50,7 +50,10 @@ ejecute el siguiente comando para realizar las pruebas
 npm test
 ```
 
-
+para instalar mocha y chai se usa:
+```
+npm install --save-dev mocha chai
+```
 #### Universidad de El Salvador
 
  

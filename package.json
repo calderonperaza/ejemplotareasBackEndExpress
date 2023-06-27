@@ -6,7 +6,7 @@
     "node": "12"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "echo 'RECUERDA USAR NODEJS VERSION 12 ' && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "format": "prettier --single-quote --check .",
