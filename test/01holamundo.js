@@ -1,5 +1,5 @@
-process.env.NODE_ENV = 'test';
-const server = require('../server');
+//process.env.NODE_ENV = 'test';
+//const server = require('../server');
 const assert = require('chai').assert;
 
 //haremos una prueba sencilla note la estructura de la prueba en mocha

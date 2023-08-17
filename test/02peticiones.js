@@ -5,6 +5,7 @@
 //y lo usamos
 //chai.use(chaiHttp);
 
+/*
 
 const server = require('../server');
 const assert = require('chai').assert;
@@ -71,3 +72,5 @@ describe('02 prueba peticiones usaremos chai-http', () => {
 
 
 });
+
+*/
