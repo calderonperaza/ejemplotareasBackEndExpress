@@ -5,8 +5,6 @@
 //y lo usamos
 //chai.use(chaiHttp);
 
-/*
-
 const server = require('../server');
 const assert = require('chai').assert;
 const chai = require('chai');
@@ -29,21 +27,23 @@ describe('02 prueba peticiones usaremos chai-http', () => {
     }
     );
 
+    
     //segunda prueba insertaremos una tarea
     //obtendremos el id de la tarea insertada para luego eliminarla
     let idTarea = '';
     it('Insertando datos', (done) => {
         chai.request(server)
             .post('/tareas')
-            .send({ nombre: 'insertando prueba mocha', hecho:false })
+            .send({ nombre: 'insertando prueba mocha ABC', hecho:false })
             .end((err, res) => {
-                //console.log(res.body);
+                console.log(res.body);
                 idTarea = res.body.id;
                 assert.equal(res.status, 200);
                 done();
             });
     });
 
+    
     //verficamos que la nueva tarea este agregada en la ruta /tareas
     it('Verificando que la tarea se inserto', (done) => {
         chai.request(server)
@@ -59,6 +59,7 @@ describe('02 prueba peticiones usaremos chai-http', () => {
             });
     });
 
+
     //ahora eliminamos la tarea que acabamos de agregar
     it('Eliminando la tarea insertada', (done) => {
         chai.request(server)
@@ -69,8 +70,7 @@ describe('02 prueba peticiones usaremos chai-http', () => {
             });
     }
     );
-
+    
 
 });
 
-*/
