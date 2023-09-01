@@ -63,7 +63,7 @@ recordRoutes.route('/tareas').post(function (req, res) {
         res.status(400).send('Error inserting matches!');
       } else {
         console.log(`Added a new match with id ${result.insertedId}`);
-        res.status(204).send();
+         res.status(200).send({'id': result.insertedId});
       }
     });
 });
