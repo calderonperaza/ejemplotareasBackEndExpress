@@ -5,6 +5,7 @@
 //y lo usamos
 //chai.use(chaiHttp);
 
+process.env.NODE_ENV = 'test';
 const server = require('../server');
 const assert = require('chai').assert;
 const chai = require('chai');
