@@ -12,6 +12,14 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
+//primero verificamos que el servidor ya esta levantado
+before(function (done) {
+    server.on("appStarted", function(){
+        done();
+    });
+});
+
+
 //haremos una prueba haciendo una peticion a la ruta /
 //y verificando que el status sea 200
 //note que ahora se utiliza el parametro done
