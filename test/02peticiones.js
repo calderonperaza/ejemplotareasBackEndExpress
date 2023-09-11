@@ -5,11 +5,20 @@
 //y lo usamos
 //chai.use(chaiHttp);
 
+process.env.NODE_ENV = 'test';
 const server = require('../server');
 const assert = require('chai').assert;
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
+
+//primero verificamos que el servidor ya esta levantado
+before(function (done) {
+    server.on("appStarted", function(){
+        done();
+    });
+});
+
 
 //haremos una prueba haciendo una peticion a la ruta /
 //y verificando que el status sea 200
