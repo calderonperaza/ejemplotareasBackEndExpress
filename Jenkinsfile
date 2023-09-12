@@ -4,6 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'node -v'
+                sh 'whoami'
             }
         }
         stage('Test') {
