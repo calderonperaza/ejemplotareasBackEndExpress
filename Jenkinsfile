@@ -1,14 +1,17 @@
 pipeline{
     agent any
+    tools {nodejs "node12"}
     stages{
         stage("Build"){
             steps{
                 echo "========executing Build========"
+                sh "npm install"
             }            
         }
         stage("Test"){
             steps{
                 echo "========executing Test========"
+                sh "npm test"
             }            
         }
     }
