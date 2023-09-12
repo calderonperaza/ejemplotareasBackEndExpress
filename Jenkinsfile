@@ -6,12 +6,13 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'node -v'
-                sh 'whoami'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'npm test'
             }
         }
         stage('Deploy') {
