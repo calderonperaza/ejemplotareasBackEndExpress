@@ -1,11 +1,31 @@
 {
-    "request_count": 1,
+    "iteration_count": 1,
     "duration": 1,
-    "steps": [{
-        "id": 1,
+    "load_type": "linear",
+    "steps": [
+        {"id": 1,
         "headers": {"Content-Type": "application/json"},
-        "url": "http://localhost:8083/v2/school",
+        "url": "http://localhost:3000/",
+        "method": "GET"        
+        },
+        {"id": 2,
+        "headers": {"Content-Type": "application/json"},
+        "url": "http://localhost:3000/tareas",
         "method": "POST",
-        "payload_file": "./payload.json"
-    }]
+        "payload_file": "./payload1.json",
+        "capture_env": {
+            "IDTAREA" :{"from":"body","json_path":"id"}
+          }
+        },
+        {"id": 3,
+        "headers": {"Content-Type": "application/json"},
+        "url": "http://localhost:3000/tareas/delete/{{IDTAREA}}",
+        "method": "DELETE"
+        },
+        {"id": 4,
+        "headers": {"Content-Type": "application/json"},
+        "url": "http://localhost:3000/tareas",
+        "method": "GET"        
+        }
+    ]
 }
