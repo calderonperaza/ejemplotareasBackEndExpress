@@ -11,3 +11,6 @@ CMD [ "node", "server.js" ]
 
 # para crear la imagen ejecute
 #sudo docker build -t mirepo/ejemplobackend:latest .
+
+#en linux puede dar error de permisos, si te pasa mueve la carpeta
+#a una ubicación en home, por ejemplo /home/usuario/ejemplobackend
