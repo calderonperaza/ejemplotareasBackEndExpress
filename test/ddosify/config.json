@@ -1,0 +1,11 @@
+{
+    "request_count": 1,
+    "duration": 1,
+    "steps": [{
+        "id": 1,
+        "headers": {"Content-Type": "application/json"},
+        "url": "http://localhost:8083/v2/school",
+        "method": "POST",
+        "payload_file": "./payload.json"
+    }]
+}
