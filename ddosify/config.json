@@ -1,6 +1,6 @@
 {
-    "iteration_count": 1,
-    "duration": 1,
+    "iteration_count": 100,
+    "duration": 5,
     "load_type": "linear",
     "steps": [
         {"id": 1,
