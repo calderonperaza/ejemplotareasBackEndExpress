@@ -19,5 +19,5 @@ Puedes usar portainer para facilitar con GUI
 2. sube la imagen compilada a docker hub haciendo docker push (debes tener las credenciales configuradas o usa portainer)
 
 3. crea un contenedor con la imagen creada
-   docker run --name backendDdosify -p 3000:3000 --network="host" -m 64M -c 0.5 -d juanperez/ejemploTareasBackend 
+   docker run --name backendDdosify -p 3000:3000 --network="host" -m 64M --cpuset-cpus="0.5" -d calderonperaza/ejemplobackend:latest 
 4. ya con la imagen corriendo lanzas la pruebas con ddosify
