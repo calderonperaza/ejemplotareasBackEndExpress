@@ -1,7 +1,7 @@
 {
-    "iteration_count": 100,
+    "iteration_count": 900,
     "duration": 5,
-    "load_type": "linear",
+    "load_type": "incremental",
     "steps": [
         {"id": 1,
         "headers": {"Content-Type": "application/json"},
@@ -19,13 +19,13 @@
         },
         {"id": 3,
         "headers": {"Content-Type": "application/json"},
-        "url": "http://localhost:3000/tareas/delete/{{IDTAREA}}",
-        "method": "DELETE"
+        "url": "http://localhost:3000/tareas",
+        "method": "GET"        
         },
         {"id": 4,
         "headers": {"Content-Type": "application/json"},
-        "url": "http://localhost:3000/tareas",
-        "method": "GET"        
-        }
+        "url": "http://localhost:3000/tareas/delete/{{IDTAREA}}",
+        "method": "DELETE"
+        }        
     ]
 }
