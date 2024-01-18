@@ -20,3 +20,4 @@ ENTRYPOINT [ "node", "server.js" ]
 
 # para crear la imagen ejecute
 #sudo docker build -t mirepo/ejemplobackend:latest .
+#sudo docker build -t calderonperaza/ejemplobackend:latest .
