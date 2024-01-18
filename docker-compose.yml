@@ -5,7 +5,7 @@ services:
     image: mongo:5.0-focal
     restart: unless-stopped    
     ports:
-      - 27017:27017 #uso 27027 porque ya tengo un mongo en 27017
+      - 27017:27017
     volumes:
       - db:/data/db
   backend:
