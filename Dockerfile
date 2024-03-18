@@ -2,7 +2,7 @@ FROM node:12.22-alpine3.15
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
-
+ENV MONGO_URL=""
 RUN npm install --production
 
 COPY . .
