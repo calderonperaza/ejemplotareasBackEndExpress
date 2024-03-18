@@ -23,3 +23,10 @@ ENTRYPOINT [ "node", "server.js" ]
 #sudo docker build -t calderonperaza/ejemplobackend:latest .
 #sudo docker login 
 #sudo docker push calderonperaza/ejemplobackend:latest
+
+#SE LE PUEDE ENVIAR UNA VARIABLE DE ENTORNO AL CONTENEDOR
+#sudo docker run --name backend -p 3000:3000 -d -e MONGO_URL='mongodb://localhost:27017/ejemplo' mirepo/ejemplobackend:latest
+
+#para referir mongodb en el host se usa host.docker.internal si mongo corre localmente
+#si corre en otro contenedor se usa el nombre del contenedor porque docker crea un dns para cada contenedor
+#sudo docker run --name backend -p 3000:3000 -d -e MONGO_URL='mongodb://host.docker.internal:27017/ejemplo' mirepo/ejemplobackend:latest
