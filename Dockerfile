@@ -14,8 +14,9 @@ COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "node", "server.js" ]
-#CMD [ "node", "server.js" ]
+#ENTRYPOINT [ "node", "server.js" ]
+USER node
+CMD [ "node", "server.js" ]
 
 
 # para crear la imagen ejecute
