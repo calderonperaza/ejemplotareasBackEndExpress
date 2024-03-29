@@ -14,9 +14,10 @@ COPY . .
 
 EXPOSE 3000
 
-#ENTRYPOINT [ "node", "server.js" ]
+#por seguridad se ejecuta como un usuario no root
 USER node
 CMD [ "node", "server.js" ]
+#ENTRYPOINT [ "node", "server.js" ]
 
 
 # para crear la imagen ejecute
