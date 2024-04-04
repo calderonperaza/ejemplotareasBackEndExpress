@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mongobackend:
-    image: mongo:5.0-focal
+    image: mongo:5.0.26-focal
     restart: unless-stopped    
     ports:
       - 27017:27017
