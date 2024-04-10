@@ -3,17 +3,17 @@ version: "3"
 services:
   mongobackend:
     image: mongo:5.0.26-focal
-    restart: unless-stopped    
+    restart: unless-stopped
     ports:
-      - 27017:27017
+      - 27017
     volumes:
       - db:/data/db
   backend:
     depends_on:
       - mongobackend
-    image: calderonperaza/ejemplobackend:latest
-    #build:
-    #  context: .      
+    #image: calderonperaza/ejemplobackend:latest
+    build:
+      context: .      
     restart: unless-stopped    
     ports:
       - 3000:3000
