@@ -1,3 +1,15 @@
+//CONFIGURAMOS REDIS Y NOS CONECTAMOS AL SERVIDOR REDIS
+// QUE ESTA EN UN CONTENEDOR DOCKER LLAMADO redis
+// estoy usando redis version 3.0.2
+const redis = require('redis');
+const client = redis.createClient({
+  host: '127.0.0.1',
+  port: 6379
+});
+client.on('error', err => console.log('Redis Client Error', err));
+
+//fin configuracion redis
+
 const express = require('express');
 const os = require('os');
 
@@ -30,8 +42,37 @@ recordRoutes.route('/error').get(async function (_req, res) {
 
 // This section will help you get a list of all the records.
 recordRoutes.route('/tareas').get(async function (_req, res) {
-  const dbConnect = dbo.getDb();
+  //antes de ir a la base de datos mongodb vamos a preguntar a redis si tiene la lista de tareas
+  //si la tiene la devolvemos usamos libreria redis version 3.0.2
+  client.get('tareas', async (err, tareas) => {
+    if (err) throw err;
+    if (tareas) {
+      console.log('Tareas from cache redis');
+      res.status(200).send(JSON.parse(tareas));
+    } else {
+      const dbConnect = dbo.getDb();
+      dbConnect
+        .collection('Tarea')
+        .find({})
+        .limit(50)
+        .toArray(function (err, result) {
+          if (err) {
+            res.status(400).send('Error fetching listings!');
+          } else {
+            //guardamos en redis
+            console.log('Tareas from mongodb y guardamos en cache redis');
+            client.setex('tareas', 10, JSON.stringify(result));
+            res.json(result);
+          }
+        });
+    }
+  });
+}
+);
+  
 
+/*
+  const dbConnect = dbo.getDb();
   dbConnect
     .collection('Tarea')
     .find({})
@@ -44,6 +85,7 @@ recordRoutes.route('/tareas').get(async function (_req, res) {
       }
     });
 });
+*/
 
 // This section will help you create a new record.
 recordRoutes.route('/tareas').post(function (req, res) {
