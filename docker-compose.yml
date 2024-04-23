@@ -7,7 +7,7 @@ services:
     ports:
       - 27017
     volumes:
-      - db:/data/db
+      - db:/data/db            
   backend:
     depends_on:
       - mongobackend
