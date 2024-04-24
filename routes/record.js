@@ -1,4 +1,5 @@
 //CONFIGURAMOS REDIS Y NOS CONECTAMOS AL SERVIDOR REDIS
+// docker run --name redis -p 6379:6379 -d redis:6-alpine
 // QUE ESTA EN UN CONTENEDOR DOCKER LLAMADO redis
 // estoy usando redis version 3.0.2
 const redis = require('redis');
