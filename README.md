@@ -1,4 +1,4 @@
-# ejemplotareasBackEndExpress
+# ejemplotareasBackEndExpress CON REDIS
 Back End Ejemplo de Tareas con Express Nodejs.
 Una pequeña aplicación de ejemplo para usarla en forma de despliegue de una apps, representa el backend y esta montada empleando NodeJS, debes tener instalado una version de node 12
 
