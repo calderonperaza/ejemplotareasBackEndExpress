@@ -45,7 +45,7 @@ describe('02 prueba peticiones usaremos chai-http', () => {
             .post('/tareas')
             .send({ nombre: 'insertando prueba mocha ABC', hecho:false })
             .end((err, res) => {
-                console.log(res.body);
+                //console.log(res.body);
                 idTarea = res.body.id;
                 assert.equal(res.status, 200);
                 done();
@@ -60,9 +60,9 @@ describe('02 prueba peticiones usaremos chai-http', () => {
             .end((err, res) => {                
                 assert.equal(res.status, 200);
                 //console.log(res.body);
-                let tareas=res.body;
-                let tarea=tareas.find(t=>t._id==idTarea);
-                //console.log(tarea);
+                let tareas=res.body;               
+                //console.log(idTarea);
+                let tarea=tareas.find(t=>t._id==idTarea);                
                 assert.equal(tarea._id,idTarea);
                 done();
             });
