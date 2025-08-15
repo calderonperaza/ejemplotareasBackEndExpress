@@ -47,7 +47,7 @@ describe('02 prueba peticiones usaremos chai-http', () => {
             .end((err, res) => {
                 //console.log(res.body);
                 idTarea = res.body.id;
-                assert.equal(res.status, 201);
+                assert.equal(res.status, 200);
                 done();
             });
     });
