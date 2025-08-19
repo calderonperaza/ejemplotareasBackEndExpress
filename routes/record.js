@@ -10,6 +10,15 @@ const recordRoutes = express.Router();
 // This will help us connect to the database
 const dbo = require('../db/conn');
 
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Get server information
+ *     responses:
+ *       200:
+ *         description: Server information
+ */
 recordRoutes.route('/').get(async function (_req, res) {
   res.status(200).send('Bienvenido al Backend!!' 
   + "<br> Hostname = " + os.hostname()
@@ -29,6 +38,18 @@ recordRoutes.route('/error').get(async function (_req, res) {
 
 
 // This section will help you get a list of all the records.
+
+
+
+/**
+ * @swagger
+ * /tareas:
+ *   get:
+ *     summary: Get all tasks
+ *     responses:
+ *       200:
+ *         description: A list de todas las tareas
+ */
 recordRoutes.route('/tareas').get(async function (_req, res) {
   const dbConnect = dbo.getDb();
 
@@ -46,6 +67,26 @@ recordRoutes.route('/tareas').get(async function (_req, res) {
 });
 
 // This section will help you create a new record.
+/**
+ * @swagger
+ * /tareas:
+ *   post:
+ *     summary: Create a new task
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *               hecho:
+ *                 type: boolean
+ *     responses:
+ *       200:
+ *         description: Task created successfully
+ */
 recordRoutes.route('/tareas').post(function (req, res) {
   const dbConnect = dbo.getDb();
   const matchDocument = {
@@ -92,6 +133,24 @@ recordRoutes.route('/listings/updateLike').post(function (req, res) {
 */
 
 // This section will help you delete a record.
+/**
+ * @swagger
+ * /tareas/delete/{id}:
+ *   delete:
+ *     summary: Delete a task by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The task ID
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *       400:
+ *         description: Error deleting task
+ */
 recordRoutes.route('/tareas/delete/:id').delete((req, res) => {
   var mongodb = require('mongodb');
   var ObjectID = require('mongodb').ObjectID;
